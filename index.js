@@ -13,6 +13,7 @@ const app = express();
 const { port, dbURI } = require('./config/environment');
 // const PORT = process.env.PORT || 3000; no longer needed because of above line
 const User = require('./models/user');
+// const Book = require('./models/book');
 
 mongoose.connect(dbURI);
 app.set('view engine', 'ejs');
@@ -36,6 +37,8 @@ app.use((req, res, next) => {
   // otherwise find user in db
   User
     .findById(req.session.userId)
+    .populate({path: 'books', populate: 'books'})
+    .exec()
     .then(user => {
       // if the user hasn't been found, log them out and redirect to login
       if(!user) req.session.regenerate(() => res.redirect('/login'));
@@ -45,7 +48,7 @@ app.use((req, res, next) => {
       res.locals.user = user; //  create user var
 
       // store the user data on `req` to be used inside the controllers
-      req.currentUser = user;
+      //req.currentUser = user;
 
       next();
     });

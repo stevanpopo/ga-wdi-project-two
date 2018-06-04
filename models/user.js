@@ -9,6 +9,13 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// setup virtual storage for books creation
+userSchema.virtual('books', {
+  ref: 'Book',
+  foreignField: 'creator',
+  localField: '_id'
+});
+
 // setup virtual schema for password confirmation
 userSchema
   .virtual('passwordConfirmation')

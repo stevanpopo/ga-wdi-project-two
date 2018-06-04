@@ -29,11 +29,15 @@ router.route('/users')
   .get(registrations.index);
 
 // Routes for books
-// 
-// router.route('/books/new')
-//   .get(books.new)
+router.route('/books/new')
+  .get(books.new)
 
 router.route('/books')
   .get(books.index)
+  .post(books.create);
+
+router.route('/books/:id')
+  .get(books.show);
+
 
 module.exports = router;
