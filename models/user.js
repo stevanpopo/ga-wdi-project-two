@@ -17,6 +17,7 @@ userSchema
     this._passwordConfirmation = passwordConfirmation;
   });
 
+// AUTHENTICATION
 // lifecycle hooks on authentication
 // set up a pre-validate hook
 userSchema.pre('validate', function checkPassword(next) {
@@ -37,5 +38,11 @@ userSchema.pre('save', function hashPassword(next) {
   // continue to save password
   next();
 });
+
+// SESSIONS
+// compare user inputted password against hashed and stored password
+userSchema.methods.validatePassword = function validatePassword(password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 module.exports = mongoose.model('User', userSchema);
