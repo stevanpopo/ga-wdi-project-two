@@ -18,8 +18,20 @@ function createRoute(req, res){
     });
 }
 
+function indexRoute(req, res){
+  console.log('Show all users');
+
+  User
+    .find()
+    .exec()
+    .then( users => {
+      res.render('users/index', {users});
+    });
+}
+
 module.exports = {
   // export functions
   new: newRoute,
-  create: createRoute
+  create: createRoute,
+  index: indexRoute
 };

@@ -24,4 +24,7 @@ router.route('/login')
 router.route('/logout')
   .get(sessions.delete);
 
+router.route('/users')
+  .get(registrations.index);
+
 module.exports = router;
