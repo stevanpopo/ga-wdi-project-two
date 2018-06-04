@@ -4,9 +4,8 @@ const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 
 // Request listeners
-// router.get('/', (req, res) => res.render('pages/home'));
-//router.get('/about', (req, res) => res.render('pages/about'));
 
+// Routes for registration, login and users
 router.route('/')
   .get(static.index);
 
@@ -26,5 +25,7 @@ router.route('/logout')
 
 router.route('/users')
   .get(registrations.index);
+
+// Routes for books
 
 module.exports = router;
