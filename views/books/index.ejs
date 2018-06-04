@@ -1,2 +1,14 @@
 <h2>All the books</h2>
 <p>This is where I will show all books.</p>
+<ul>
+
+<% books.forEach( book =>{ %>
+  <li>
+    <a href="/books/<%= book.id %>"><%= book.book_name %></a>
+    <img style="max-width: 200px " src='<%= book.cover_image %>' alt='<%= book.book_name %>' />
+    <% if(book.creator) { %>
+      <%= book.creator.name %>
+    <% } %>
+  </li>
+<% }) %>
+</ul>

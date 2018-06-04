@@ -8,7 +8,14 @@ function newRoute(req, res){
 
 function indexRoute(req, res){
   console.log('Show all books');
-  res.render('books/index');
+
+  Book
+    .find()
+    .populate('creator') // rather than just being an ID, populate becomes the whole linked object
+    .exec()
+    .then( books =>{
+      res.render('books/index', {books});
+    });
 }
 
 function createRoute(req, res){
