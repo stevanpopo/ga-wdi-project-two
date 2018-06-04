@@ -2,13 +2,14 @@ const User = require('../models/user');
 
 function newRoute(req, res) {
   console.log('Show new session form (login form)');
-  // res.render('sessions/new');
+  res.render('sessions/new');
 }
 
 function createRoute(req, res, next) {
   User
     .findOne({ email: req.body.email })
     .then(user => {
+      console.log('Signing in', user);
       // if the user cannot be found, or did not supply a valid password
       if(!user || !user.validatePassword(req.body.password)) {
         console.log('User failed login requirements');
@@ -21,6 +22,7 @@ function createRoute(req, res, next) {
 }
 
 function deleteRoute(req, res){
+  console.log('Logging out');
   return req.session.regenerate(() => res.redirect('/'));
 }
 
