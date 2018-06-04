@@ -20,4 +20,4 @@ app.use(express.static(`${__dirname}/public`));
 
 //Last line always
 app.use(router);
-app.listen(port, () => console.log(`App is runnig on ${port}`));
+app.listen(port, () => console.log(`App is running on ${port}`));
