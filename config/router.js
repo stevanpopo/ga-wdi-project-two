@@ -2,6 +2,8 @@ const router = require('express').Router();
 const static = require('../controllers/static');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const books = require('../controllers/books');
+
 
 // Request listeners
 
@@ -27,5 +29,11 @@ router.route('/users')
   .get(registrations.index);
 
 // Routes for books
+// 
+// router.route('/books/new')
+//   .get(books.new)
+
+router.route('/books')
+  .get(books.index)
 
 module.exports = router;
