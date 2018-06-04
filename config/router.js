@@ -13,6 +13,7 @@ router.route('/about')
   .get(static.about);
 
 router.route('/register')
-  .get(registrations.new);
+  .get(registrations.new)
+  .post(registrations.create);
 
 module.exports = router;
