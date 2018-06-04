@@ -5,6 +5,7 @@ const router = require('./config/router');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 //Called packages
 const app = express();
@@ -20,6 +21,16 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// setup method-override
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    const method = req.body._method
+    delete req.body._method
+    return method
+  }
+}));
 
 // tell express app to use express-session (enables cookies)
 app.use(session({
@@ -48,7 +59,7 @@ app.use((req, res, next) => {
       res.locals.user = user; //  create user var
 
       // store the user data on `req` to be used inside the controllers
-      //req.currentUser = user;
+      req.currentUser = user;
 
       next();
     });

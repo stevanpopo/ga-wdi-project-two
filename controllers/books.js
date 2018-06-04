@@ -21,8 +21,8 @@ function indexRoute(req, res){
 function createRoute(req, res){
   console.log('Create a new book');
   console.log(req.body);
-  // const bookData = req.body;
-  // bookData['creator'] = res.locals.user.id;
+  const bookData = req.body;
+  bookData['creator'] = res.locals.user.id;
   // console.log(bookData);
   Book
     .create(req.body)
@@ -42,9 +42,32 @@ function showRoute(req, res){
     });
 }
 
+function editRoute(req, res){
+  console.log('in the edit route');
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then( book =>{
+      res.render('books/edit', {book});
+    });
+}
+
+function updateRoute(req, res){
+  console.log('in the update route');
+  Book
+    .findById(req.params.id)
+    .update(req.body)
+    .then( book =>{
+      console.log(book);
+      return res.redirect(`/books/${req.params.id}`);
+    });
+}
+
 module.exports = {
   new: newRoute,
   create: createRoute,
   index: indexRoute,
-  show: showRoute
+  show: showRoute,
+  edit: editRoute,
+  update: updateRoute
 };
