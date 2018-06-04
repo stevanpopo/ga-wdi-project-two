@@ -14,8 +14,8 @@
         <li><a href="/books">Books</a> </li>
         <li><a href="/users">Users</a></li>
         <% if(locals.isLoggedIn){%>
-            <li>Hi <%= locals.user.username %></li>
-            <!-- <li><a href="/books/new">Add a new book</a> </li> -->
+            <li>Hi <%= locals.user.name %></li>
+            <li><a href="/books/new">Add a new book</a> </li>
             <li><a href="/logout">Logout</a></li>
         <%} else {%>
             <li><a href="/login">Login</a></li>
