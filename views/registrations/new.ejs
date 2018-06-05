@@ -1,23 +1,50 @@
 <form method="POST" action="/register">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name">
+  <div class="field">
+    <label class="label" for="name">Name</label>
+    <input class="input" type="text" name="name" id="name">
   </div>
-  <div>
-    <label for="image">Profile Image</label>
-    <input type="text" name="image" id="image">
+  <div class="field">
+    <label class="label" for="image">Profile Image</label>
+    <input class="input" type="text" name="image" id="image">
   </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
+  <div class="field">
+    <label class="label" for="email">Email</label>
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" type="text" name="email" id="email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </p>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
+  <div class="field">
+    <label class="label" for="password">Password</label>
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="password" id="password">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
   </div>
-  <div>
-    <label for="passwordConfirmation">Password Confirmation</label>
-    <input type="password" name="passwordConfirmation" id="passwordConfirmation">
+  <div class="field">
+    <label class="label" for="passwordConfirmation">Password Confirmation</label>
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
   </div>
-  <button class="button">Register</button>
+  <div class="field is-grouped">
+    <p class="control">
+      <button class="button is-success">Register</button>
+    </p>
+    <p class="control">
+      <a class="button is-light" href="/">
+        Cancel
+      </a>
+    </p>
+  </div>
 </form>
