@@ -5,3 +5,8 @@
 <img src='<%= book.cover_image %>' alt='<%= book.book_name %>' />
 
 <a href='<%= book.id %>/edit'>Edit book</a>
+
+<form action="/books/<%= book.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <button name="button">Delete Book</button>
+</form> 

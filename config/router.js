@@ -28,6 +28,9 @@ router.route('/logout')
 router.route('/users')
   .get(registrations.index);
 
+router.route('/users/:id')
+  .get(registrations.show);
+
 // Routes for books
 router.route('/books')
   .get(books.index)
@@ -38,7 +41,8 @@ router.route('/books/new')
 
 router.route('/books/:id')
   .get(books.show)
-  .put(books.update);
+  .put(books.update)
+  .delete(books.delete);
 
 router.route('/books/:id/edit')
   .get(books.edit);

@@ -63,11 +63,23 @@ function updateRoute(req, res){
     });
 }
 
+function deleteRoute(req, res){
+  console.log('in the delete route');
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then( book =>{
+      book.remove();
+      return res.redirect('/books');
+    });
+}
+
 module.exports = {
   new: newRoute,
   create: createRoute,
   index: indexRoute,
   show: showRoute,
   edit: editRoute,
-  update: updateRoute
+  update: updateRoute,
+  delete: deleteRoute
 };

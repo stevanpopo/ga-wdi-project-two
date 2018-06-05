@@ -1,6 +1,7 @@
 <h1>Community</h1>
 
 <% users.forEach((user) => { %>
-  <h2><%= user.email %></h2>
+  <h4><a href='/users/<%= user.id %>'><%= user.name %></a></h4>
+  <p><%= user.email %></p>
   <p><%= user.password %></p>
 <% }) %>

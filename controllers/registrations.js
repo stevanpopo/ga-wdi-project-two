@@ -29,9 +29,21 @@ function indexRoute(req, res){
     });
 }
 
+function showRoute(req, res){
+  console.log('Show one user profile');
+
+  User
+    .findById(req.params.id)
+    .exec()
+    .then( user => {
+      res.render('users/show', {user});
+    });
+}
+
 module.exports = {
   // export functions
   new: newRoute,
   create: createRoute,
-  index: indexRoute
+  index: indexRoute,
+  show: showRoute
 };
