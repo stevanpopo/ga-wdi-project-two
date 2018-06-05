@@ -3,29 +3,44 @@
   <head>
     <meta charset="utf-8">
     <title>Book Club App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
   </head>
   <body>
     <%= JSON.stringify(locals.user) %>
-    <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="dropdown menu" data-dropdown-menu>
-        <li> <a href="/">Home</a></li>
-        <li><a href="/books">Books</a> </li>
-        <li><a href="/users">Users</a></li>
-        <li><a href="/about">About</a></li>
-        <% if(locals.isLoggedIn){%>
-            <li>Hi <%= locals.user.name %></li>
-            <li><a href="/books/new">Add a new book</a> </li>
-            <li><a href="/logout">Logout</a></li>
-        <%} else {%>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Sign up</a></li>
-        <% } %>
 
-      </ul>
-    </div>
-  </div>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- navbar items, navbar burger... -->
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <!-- navbar start, navbar end -->
+        <div class="navbar-start">
+          <!-- navbar items -->
+          <a href="/" class="navbar-item">Home</a>
+          <a href="/books" class="navbar-item">Books</a>
+          <a href="/users" class="navbar-item">Users</a>
+        </div>
+        <div class="navbar-end">
+          <!-- navbar items -->
+          <a href="/about" class="navbar-item">About</a>
+          <% if(locals.isLoggedIn){ %>
+            <li class="navbar-item">Hi <%= locals.user.name %></li>
+            <a href="/books/new" class="navbar-item">Add a new book</a>
+            <a href="/logout" class="navbar-item">Logout</a>
+          <%} else {%>
+            <a href="/login" class="navbar-item">Login</a>
+            <a href="/register" class="navbar-item">Sign up</a>
+          <% } %>
+
+        </div>
+      </div>
+    </nav>
+
     <%- body -%>
   </body>
 </html>
