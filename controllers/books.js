@@ -74,6 +74,40 @@ function deleteRoute(req, res){
     });
 }
 
+function commentCreateRoute(req, res, next) {
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then(book => {
+      // push the data from the form into the `comments` array
+      book.comments.push(req.body);
+      // book.user.push()
+      console.log('params id', req.params.id);
+      console.log('req body', req.body);
+      // save the parent record
+      return book.save();
+    })
+    .then(book => res.redirect(`/books/${book._id}`)) // reload the cheese SHOW page
+    .catch(next);
+}
+
+function commentDeleteRoute(req, res, next) {
+  // find the relevant cheese
+  Book
+    .findById(req.params.id)
+    .then(book => {
+      // find the specific comment
+      const comment = book.comments.id(req.params.commentId);
+      // remove the comment from the parent record
+      comment.remove();
+
+      // save the parent record
+      return book.save();
+    })
+    .then(book => res.redirect(`/cheeses/${book._id}`)) // reload the cheese SHOW page
+    .catch(next);
+}
+
 module.exports = {
   new: newRoute,
   create: createRoute,
@@ -81,5 +115,7 @@ module.exports = {
   show: showRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  commentCreate: commentCreateRoute,
+  commentDelete: commentDeleteRoute
 };
