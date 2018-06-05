@@ -1,14 +1,25 @@
 <h2>All the books</h2>
 <p>This is where I will show all books.</p>
-<ul>
-
-<% books.forEach( book =>{ %>
-  <li>
-    <a href="/books/<%= book.id %>"><%= book.book_name %></a>
-    <img style="max-width: 200px " src='<%= book.cover_image %>' alt='<%= book.book_name %>' />
-    <% if(book.creator) { %>
-      <%= book.creator.name %>
-    <% } %>
-  </li>
-<% }) %>
-</ul>
+<br>
+<div class="columns">
+  <% books.forEach( book =>{ %>
+    <div class="card column">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="<%= book.cover_image %>" alt="<%= book.book_name %>">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4"><a href="/books/<%= book.id %>"><%= book.book_name %></a></p>
+            <p class="subtitle is-6"><%= book.book_author %></p>
+            <% if(book.creator) { %>
+                <p class="subtitle is-6"><%= book.creator.name %></p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
