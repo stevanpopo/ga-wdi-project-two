@@ -4,13 +4,26 @@
 
 <h2>This is the login page</h2>
 <form method="POST" action="/login">
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
+  <div class="field">
+    <label class="label" for="email">Email</label>
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" type="text" name="email" id="email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </p>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
+  <div class="field">
+    <label class="label" for="password">Password</label>
+    <p class="control has-icons-left">
+      <input class="input" type="password" name="password" id="password">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
   </div>
-  <button class="button">Login</button>
+  <button class="button is-success">Login</button>
 </form>
