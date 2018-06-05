@@ -9,15 +9,13 @@
       <h1><%= book.book_name %></h1>
       <h3 class="subtitle"><em>By  <%= book.book_author %></em></h3>
       <p><%= book.blurb %></p>
-      <ul>
-        <li><a href='<%= book.id %>/edit'>Edit book</a></li>
-        <li>
-          <form action="/books/<%= book.id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <button name="button">Delete Book</button>
-          </form>
-        </li>
-      </ul>
+      <div class="field is-grouped is-grouped-multiline">
+        <a class="button control" href='<%= book.id %>/edit'>Edit book</a>
+        <form action="/books/<%= book.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="button control is-danger" name="button">Delete Book</button>
+        </form>
+      </div>
     </article>
   </div>
 </div>

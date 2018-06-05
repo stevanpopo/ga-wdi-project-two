@@ -10,15 +10,13 @@
       <h3><%= user.email %></h3>
       <p><%= user.bio %></p>
       <p><%= user.password %></p>
-      <ul>
-        <li><a href="/users/<%= user.id %>/edit">Edit Profile</a></li>
-        <li>
-          <form action="/users/<%= user.id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <button name="button">Delete Profile</button>
-          </form>
-        </li>
-      </ul>
+      <div class="field is-grouped is-grouped-multiline">
+        <a class="button control" href="/users/<%= user.id %>/edit">Edit Profile</a>
+        <form action="/users/<%= user.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="button control is-danger" name="button">Delete Profile</button>
+        </form>
+      </div>
     </article>
   </div>
 </div>
