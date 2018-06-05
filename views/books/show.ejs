@@ -10,10 +10,15 @@
       <h3 class="subtitle"><em>By  <%= book.book_author %></em></h3>
       <p><%= book.blurb %></p>
       <div class="field is-grouped is-grouped-multiline">
-        <a class="button control" href='<%= book.id %>/edit'>Edit book</a>
+        <a class="button control" href='<%= book.id %>/edit'>Edit Book</a>
         <form action="/books/<%= book.id %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
-          <button class="button control is-danger" name="button">Delete Book</button>
+          <button class="button control is-danger is-outlined" name="button">
+            <span>Delete Book</span>
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
         </form>
       </div>
     </article>

@@ -14,7 +14,12 @@
         <a class="button control" href="/users/<%= user.id %>/edit">Edit Profile</a>
         <form action="/users/<%= user.id %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
-          <button class="button control is-danger" name="button">Delete Profile</button>
+          <button class="button control is-danger is-outlined" name="button">
+            <span>Delete Profile</span>
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
         </form>
       </div>
     </article>
