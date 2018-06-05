@@ -29,7 +29,11 @@ router.route('/users')
   .get(registrations.index);
 
 router.route('/users/:id')
-  .get(registrations.show);
+  .get(registrations.show)
+  .put(registrations.update);
+
+router.route('/users/:id/edit')
+  .get(registrations.edit);
 
 // Routes for books
 router.route('/books')

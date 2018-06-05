@@ -40,10 +40,35 @@ function showRoute(req, res){
     });
 }
 
+function editRoute(req, res){
+  console.log('Show the edit form');
+
+  User
+    .findById(req.params.id)
+    .exec()
+    .then( user =>{
+      res.render('users/edit', {user});
+    });
+}
+
+function updateRoute(req, res){
+  console.log('Update user profile');
+
+  User
+    .findById(req.params.id)
+    .update(req.body)
+    .then( user =>{
+      console.log(user);
+      return res.redirect(`/users/${req.params.id}`);
+    });
+}
+
 module.exports = {
   // export functions
   new: newRoute,
   create: createRoute,
   index: indexRoute,
-  show: showRoute
+  show: showRoute,
+  edit: editRoute,
+  update: updateRoute
 };
