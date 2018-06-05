@@ -9,7 +9,8 @@ const books = require('../controllers/books');
 
 // Routes for registration, login and users
 router.route('/')
-  .get(static.index);
+  .get(books.index)
+  // .get(static.index);
 
 router.route('/about')
   .get(static.about);
@@ -38,7 +39,6 @@ router.route('/users/:id/edit')
 
 // Routes for books
 router.route('/books')
-  .get(books.index)
   .post(books.create);
 
 router.route('/books/new')
