@@ -1,7 +1,23 @@
 <h1>Community</h1>
-
-<% users.forEach((user) => { %>
-  <h4><a href='/users/<%= user.id %>'><%= user.name %></a></h4>
-  <p><%= user.email %></p>
-  <p><%= user.password %></p>
-<% }) %>
+<p>This is where I will show all user profiles.</p>
+<br>
+<div class="columns">
+  <% users.forEach((user) => { %>
+    <div class="card column">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="<%= user.image %>" alt="<%= user.name %>">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4"><a href='/users/<%= user.id %>'><%= user.name %></a></p>
+            <p class="subtitle is-6"><%= user.email %></p>
+            <p class="subtitle is-6"><%= user.password %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</div>
