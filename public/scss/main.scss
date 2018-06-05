@@ -1,0 +1,16 @@
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+
+// overwrite Bulma defaults
+
+$primary: blue;
+$dimensions: 16 24 32 48 64 96 128 !default;
+
+// CUSTOM SCSS
+
+h2.title  {
+  color: $primary;
+}
+
+.container {
+  width: 80%;
+}

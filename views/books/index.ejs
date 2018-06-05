@@ -1,21 +1,21 @@
-<h2>All the books</h2>
-<p>This is where I will show all books.</p>
+<h2 class="title is-2">All the books</h2>
+<h4 class="subtitle is-4">This is where I will show all books.</h4>
 <br>
-<div class="columns is-multiline is-moobile">
+<div class="columns is-multiline is-mobile">
   <% books.forEach( book =>{ %>
     <div class="card column is-one-third-desktop is-half-tablet">
       <div class="card-content">
         <div class="media">
           <div class="media-left">
-            <figure class="image is-48x48">
+            <figure class="image is-128x128 is-3by4">
               <img src="<%= book.cover_image %>" alt="<%= book.book_name %>">
             </figure>
           </div>
           <div class="media-content">
-            <p class="title is-4"><a href="/books/<%= book.id %>"><%= book.book_name %></a></p>
-            <p class="subtitle is-6"><%= book.book_author %></p>
+            <h3 class="title is-4"><a href="/books/<%= book.id %>"><%= book.book_name %></a></h3>
+            <h4 class="subtitle is-6"><%= book.book_author %></h4>
             <% if(book.creator) { %>
-                <p class="subtitle is-6"><%= book.creator.name %></p>
+                <h4 class="subtitle is-6"><%= book.creator.name %></h4>
             <% } %>
           </div>
         </div>

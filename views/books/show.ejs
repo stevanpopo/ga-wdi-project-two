@@ -1,12 +1,23 @@
-<h2>Book View</h2>
-
-<h4>  <%= book.book_name %></h4>
-<h4>  <%= book.book_author %></h4>
-<img src='<%= book.cover_image %>' alt='<%= book.book_name %>' />
-
-<a href='<%= book.id %>/edit'>Edit book</a>
-
-<form action="/books/<%= book.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <button name="button">Delete Book</button>
-</form>
+<div class="columns">
+  <div class="column is-one-third">
+    <figure class="image is-4by5">
+      <img src='<%= book.cover_image %>' alt='<%= book.book_name %>'/>
+    </figure>
+  </div>
+  <div class="column">
+    <article class="content">
+      <h1><%= book.book_name %></h1>
+      <h3 class="subtitle"><em>By  <%= book.book_author %></em></h3>
+      <p><%= book.blurb %></p>
+      <ul>
+        <li><a href='<%= book.id %>/edit'>Edit book</a></li>
+        <li>
+          <form action="/books/<%= book.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button name="button">Delete Book</button>
+          </form>
+        </li>
+      </ul>
+    </article>
+  </div>
+</div>

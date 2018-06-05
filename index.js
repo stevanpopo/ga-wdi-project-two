@@ -21,6 +21,7 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(`${__dirname}/public`));
 
 // setup method-override
 app.use(methodOverride(function (req, res) {
@@ -64,8 +65,6 @@ app.use((req, res, next) => {
       next();
     });
 });
-
-app.use(express.static(`${__dirname}/public`));
 
 //Last line always
 app.use(router);
