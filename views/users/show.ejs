@@ -1,12 +1,24 @@
-<h1>User Profile</h1>
-<img src="<%= user.image %>" alt="<%= user.name %> profile image">
-<h2><%= user.name %></h2>
-<h2><%= user.email %></h2>
-<p><%= user.password %></p>
-
-<a href="/users/<%= user.id %>/edit">Edit Profile</a>
-
-<form action="/users/<%= user.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <button name="button">Delete Profile</button>
-</form>
+<div class="columns">
+  <div class="column is-one-third">
+    <figure class="image is-4by5">
+      <img src="<%= user.image %>" alt="<%= user.name %> profile image">
+    </figure>
+  </div>
+  <div class="column">
+    <article class="content">
+      <h1><%= user.name %></h1>
+      <h3><%= user.email %></h3>
+      <p><%= user.bio %></p>
+      <p><%= user.password %></p>
+      <ul>
+        <li><a href="/users/<%= user.id %>/edit">Edit Profile</a></li>
+        <li>
+          <form action="/users/<%= user.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button name="button">Delete Profile</button>
+          </form>
+        </li>
+      </ul>
+    </article>
+  </div>
+</div>
