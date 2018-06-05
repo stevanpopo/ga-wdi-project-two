@@ -1,24 +1,24 @@
 <form action="/users/<%= user.id %>" method="POST">
     <input type="hidden" name="_method" value="PUT">
-    <div>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="<%= user.name %>">
+    <div class="field">
+        <label class="label" for="name">Name</label>
+        <input class="input" type="text" name="name" id="name" value="<%= user.name %>">
     </div>
-    <div>
-        <label for="image">Profile Image</label>
-        <input type="text" name="image" id="image" value="<%= user.image %>">
+    <div class="field">
+        <label class="label" for="image">Profile Image</label>
+        <input class="input" type="text" name="image" id="image" value="<%= user.image %>">
     </div>
-    <div>
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" value="<%= user.email %>">
+    <div class="field">
+        <label class="label" for="email">Email</label>
+        <input class="input" type="text" name="email" id="email" value="<%= user.email %>">
     </div>
-    <div>
-        <label for="bio">Bio</label>
-        <input type="text" name="bio" id="bio" value="<%= user.bio %>">
+    <div class="field">
+        <label class="label" for="bio">Bio</label>
+        <input class="input textarea" type="text" name="bio" id="bio" value="<%= user.bio %>">
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="text" name="password" id="password"  value="<%= user.password %>">
+    <div class="field">
+        <label class="label" for="password">Password</label>
+        <input class="input" type="text" name="password" id="password"  value="<%= user.password %>">
     </div>
     <button name="button">Update Profile</button>
 </form>
