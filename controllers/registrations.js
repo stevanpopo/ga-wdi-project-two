@@ -63,6 +63,17 @@ function updateRoute(req, res){
     });
 }
 
+function deleteRoute(req, res){
+  console.log('in the delete user route');
+  User
+    .findById(req.params.id)
+    .exec()
+    .then( user =>{
+      user.remove();
+      return res.redirect('/users');
+    });
+}
+
 module.exports = {
   // export functions
   new: newRoute,
@@ -70,5 +81,6 @@ module.exports = {
   index: indexRoute,
   show: showRoute,
   edit: editRoute,
-  update: updateRoute
+  update: updateRoute,
+  delete: deleteRoute
 };

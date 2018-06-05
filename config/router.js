@@ -30,7 +30,8 @@ router.route('/users')
 
 router.route('/users/:id')
   .get(registrations.show)
-  .put(registrations.update);
+  .put(registrations.update)
+  .delete(registrations.delete);
 
 router.route('/users/:id/edit')
   .get(registrations.edit);
