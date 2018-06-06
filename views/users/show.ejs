@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column is-one-third">
-    <figure class="image is-4by5">
+    <figure class="image is-4by4">
       <img src="<%= user.image %>" alt="<%= user.name %> profile image">
     </figure>
   </div>
@@ -23,5 +23,21 @@
         </form>
       </div>
     </article>
+    <% console.log('user.id', user); %>
+    <% console.log('user.id', user.id); %>
+    <% console.log('user.name', user.name); %>
+    <% console.log('user comments', userComments); %>
+    <% console.log('user.books', user.books); %>
+    <% console.log('user.all_comments', user.all_comments); %>
+    <% console.log('user.creator', user.creator); %>
+    <% if (userComments) { %>
+      <% userComments.forEach(comment => { %>
+        <article class="message is-info">
+          <p class="message-body">
+            <%= comment.content %>
+          </p>
+        </article>
+      <% }); %>
+    <% } %>
   </div>
 </div>

@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const methodOverride = require('method-override');
+mongoose.Promise = require('bluebird');
 
 //Called packages
 const app = express();

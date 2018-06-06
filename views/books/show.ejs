@@ -40,7 +40,7 @@
         <p class="message-body column is-four-fifths">
           <%= comment.content %> <em>
           <% if(comment.comment_creator) { %>
-            by <%= comment.comment_creator.name %></em>
+            by <a href="/users/<%= comment.comment_creator.id %>" ><%= comment.comment_creator.name %></a></em>
           <% } %>
         </p>
         <form class="column" action="/books/<%= book.id %>/comments/<%= comment.id %>" %> method="POST">

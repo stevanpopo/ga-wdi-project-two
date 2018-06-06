@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
   image: {type: String, required: true},
   email: {type: String, required: true},
   bio: {type: String, minlength: 100},
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  all_comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Book'}]
 }, {
   timestamps: true
 });
@@ -14,7 +15,13 @@ const userSchema = new mongoose.Schema({
 // setup virtual storage for books creation
 userSchema.virtual('books', {
   ref: 'Book',
-  foreignField: 'creator',
+  foreignField: 'book_name',
+  localField: '_id'
+});
+
+userSchema.virtual('books', {
+  ref: 'Book',
+  foreignField: 'comments',
   localField: '_id'
 });
 

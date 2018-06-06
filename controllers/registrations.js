@@ -1,4 +1,5 @@
-const User = require('../models/user.js');
+const User = require('../models/user');
+const Book = require('../models/book');
 
 function newRoute(req, res){
   // render the new registrations form
@@ -21,6 +22,7 @@ function createRoute(req, res){
 function indexRoute(req, res){
   console.log('Show all users');
 
+
   User
     .find()
     .exec()
@@ -32,12 +34,39 @@ function indexRoute(req, res){
 function showRoute(req, res){
   console.log('Show one user profile');
 
-  User
-    .findById(req.params.id)
-    .exec()
-    .then( user => {
-      res.render('users/show', {user});
+  Promise.all([Book.find(), User.findById(req.params.id)])
+    .then(values => {
+      const user = values[1];
+      const userId = values[1]._id.toString();
+      // console.log(userId);
+      const userComments = [];
+      values[0].forEach(book => {
+        // userComments.concat(book.comments.filter(comment => comment.comment_creator.toString() === userId));
+        // THIS WORKS - const filteredArr = book.comments.filter(comment => comment.comment_creator.toString() === userId);
+        // console.log('filtered array', filteredArr);
+        console.log(book.book_name); // this prinst book name
+        book.comments.forEach( comment => console.log(comment.content)); // this prints comment
+        //console.log(book.comments);
+        // THIS WORKS - Array.prototype.push.apply(userComments, filteredArr);
+        // console.log('filtered array', filteredArr);
+        // console.log('userComments array', userComments);
+        // book.comments.forEach(comment => console.log(comment));
+      });
+      // console.log('filtered array', filteredArr);
+      // console.log('userComments array', userComments);
+      res.render('users/show', {user, userComments});
+      // console.log(userComments);
+      // res.render('users/show', {values});
     });
+  // User
+  //   .findById(req.params.id)
+  //   .populate('all_comments')
+  //   .exec()
+  //   .then( user => {
+  //     console.log(user);
+  //     console.log(user.all_comments);
+  //     res.render('users/show', {user});
+  //   });
 }
 
 function editRoute(req, res){
