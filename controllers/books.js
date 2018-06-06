@@ -93,7 +93,7 @@ function commentCreateRoute(req, res, next) {
 }
 
 function commentDeleteRoute(req, res, next) {
-  // find the relevant cheese
+  console.log('delete comment route');
   Book
     .findById(req.params.id)
     .then(book => {
@@ -101,11 +101,10 @@ function commentDeleteRoute(req, res, next) {
       const comment = book.comments.id(req.params.commentId);
       // remove the comment from the parent record
       comment.remove();
-
       // save the parent record
       return book.save();
     })
-    .then(book => res.redirect(`/cheeses/${book._id}`)) // reload the cheese SHOW page
+    .then(book => res.redirect(`/books/${book._id}`)) // reload the cheese SHOW page
     .catch(next);
 }
 

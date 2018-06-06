@@ -34,13 +34,25 @@
         </button>
       </div>
     </form>
-    <ul>
-      <% book.comments.forEach(comment => { %>
-        <li><%= comment.content %></li>
-        <li><%= comment.comment_creator.name %></li>
-        <% if(comment.comment_creator) { %>
-        <% } %>
-      <% }) %>
-    </ul>
+
+    <% book.comments.forEach(comment => { %>
+      <article class="message is-info">
+        <p class="message-body">
+          <%= comment.content %> <em>
+          <% if(comment.comment_creator) { %>
+            by <%= comment.comment_creator.name %></em>
+          <% } %>
+        </p>
+        <form action="/books/<%= book.id %>/comments/<%= comment.id %>" %> method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button class="button control is-danger is-outlined is-small" name="button">
+            <span>Delete Book</span>
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+        </form>
+      </article>
+    <% }) %>
   </div>
 </div>

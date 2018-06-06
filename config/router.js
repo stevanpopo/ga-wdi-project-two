@@ -55,7 +55,7 @@ router.route('/books/:id/edit')
 router.route('/books/:id/comments')
   .post(books.commentCreate);
 
-router.route('/cheeses/:id/comments/:commentId')
+router.route('/books/:id/comments/:commentId')
   .delete(books.commentDelete);
 
 module.exports = router;
