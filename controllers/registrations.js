@@ -40,8 +40,6 @@ function showRoute(req, res){
       const userId = values[1]._id.toString();
       const bookCommentPairs = [];
       values[0].forEach(book => {
-        const bookId = book.id;
-        console.log(bookId);
         const filteredArr = book.comments.filter(comment => comment.comment_creator.toString() === userId);
         const bookComments = [];
         filteredArr.forEach(comment => bookComments.push(comment.content));

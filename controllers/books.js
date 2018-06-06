@@ -15,6 +15,15 @@ function indexRoute(req, res){
     .populate('creator') // rather than just being an ID, populate becomes the whole linked object
     .exec()
     .then( books =>{
+      books.forEach(book => {
+        const commenters = [];
+        book.comments.forEach(comment => {
+          if (!commenters.includes(comment.comment_creator.toString())){
+            commenters.push(comment.comment_creator.toString());
+          }
+        });
+        book.commenters_count = commenters.length;
+      });
       res.render('books/index', {books});
     });
 }
