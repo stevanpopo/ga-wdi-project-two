@@ -37,7 +37,9 @@
     <ul>
       <% book.comments.forEach(comment => { %>
         <li><%= comment.content %></li>
-        <li><%= comment.user %></li>
+        <li><%= comment.comment_creator.name %></li>
+        <% if(comment.comment_creator) { %>
+        <% } %>
       <% }) %>
     </ul>
   </div>

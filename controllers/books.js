@@ -1,4 +1,5 @@
 const Book = require('../models/book.js');
+// const User = require('../models/user.js');
 
 function newRoute(req, res){
   console.log('Show new books form');
@@ -36,6 +37,8 @@ function showRoute(req, res){
 
   Book
     .findById(req.params.id)
+    .populate('creator')
+    .populate('comments.comment_creator')
     .exec()
     .then( book =>{
       res.render('books/show', {book});
@@ -79,12 +82,10 @@ function commentCreateRoute(req, res, next) {
     .findById(req.params.id)
     .exec()
     .then(book => {
-      // push the data from the form into the `comments` array
-      book.comments.push(req.body);
-      // book.user.push()
-      console.log('params id', req.params.id);
-      console.log('req body', req.body);
-      // save the parent record
+      const commentData = req.body;
+      commentData.comment_creator = res.locals.currentUser.id;
+      book.comments.push(commentData);
+      console.log('commentData', commentData);
       return book.save();
     })
     .then(book => res.redirect(`/books/${book._id}`)) // reload the cheese SHOW page

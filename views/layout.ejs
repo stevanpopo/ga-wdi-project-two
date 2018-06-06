@@ -32,7 +32,7 @@
           <!-- navbar items -->
           <a href="/about" class="navbar-item">About</a>
           <% if(locals.isLoggedIn){ %>
-            <li class="navbar-item">Hi <%= locals.user.name %></li>
+            <li class="navbar-item">Hi <%= locals.currentUser.name %></li>
             <a href="/books/new" class="navbar-item">Add a new book</a>
             <a href="/logout" class="navbar-item">Logout</a>
           <%} else {%>

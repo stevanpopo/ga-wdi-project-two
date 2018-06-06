@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 
       // add some helpers to res.locals, for use elsewhere
       res.locals.isLoggedIn = true; // create isLoggedIn to enact only when user is logged in
-      res.locals.user = user; //  create user var
+      res.locals.currentUser = user; //  create user var
 
       // store the user data on `req` to be used inside the controllers
       req.currentUser = user;
