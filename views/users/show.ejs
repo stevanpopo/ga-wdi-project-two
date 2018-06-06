@@ -24,11 +24,14 @@
       </div>
     </article>
 
-    <% if (bookCommentPairs) { %>
-      <% bookCommentPairs.forEach(pair => { %>
+
+    <% bookCommentPairs.forEach(pair => { %>
+      <% if (pair[0][1].length !== 0){ %>
         <article class="message is-info content">
           <div class="message-body">
-            <h6 ><%= pair[0][0] %></h6>
+            <a href="/books/<%= pair[0][2] %>">
+              <h6 ><%= pair[0][0] %></h6>
+            </a>
             <ol>
               <% pair[0][1].forEach(comment => { %>
                 <li><%= comment %></li>
@@ -36,7 +39,7 @@
             </ol>
           </div>
         </article>
-      <% }); %>
-    <% } %>
+      <% } %>
+    <% }); %>
   </div>
 </div>
