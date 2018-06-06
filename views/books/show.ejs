@@ -26,7 +26,7 @@
       <p class="help">Write a comment.</p>
       <textarea class="input" name="content" required></textarea>
       <div class="field buttons is-right">
-        <button class="button is-success is-small control" name="button">
+        <button class="button is-success is-small control post-comment" name="button">
           <span class="icon is-small">
             <i class="fas fa-check"></i>
           </span>
@@ -36,17 +36,17 @@
     </form>
 
     <% book.comments.forEach(comment => { %>
-      <article class="message is-info">
-        <p class="message-body">
+      <article class="message is-info columns book-comment">
+        <p class="message-body column is-four-fifths">
           <%= comment.content %> <em>
           <% if(comment.comment_creator) { %>
             by <%= comment.comment_creator.name %></em>
           <% } %>
         </p>
-        <form action="/books/<%= book.id %>/comments/<%= comment.id %>" %> method="POST">
+        <form class="column" action="/books/<%= book.id %>/comments/<%= comment.id %>" %> method="POST">
           <input type="hidden" name="_method" value="DELETE">
-          <button class="button control is-danger is-outlined is-small" name="button">
-            <span>Delete Book</span>
+          <button class="button control is-danger is-outlined is-small delete-comment" name="button">
+            <span>Delete Comment</span>
             <span class="icon is-small">
               <i class="fas fa-times"></i>
             </span>

@@ -1,4 +1,13 @@
 h2.title {
   color: blue; }
 
+.container {
+  width: 80%; }
+
+article.columns.book-comment {
+  margin-top: 5px; }
+
+button.post-comment {
+  margin-top: 5px; }
+
 /*# sourceMappingURL=style.css.map */
