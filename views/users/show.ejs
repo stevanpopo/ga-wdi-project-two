@@ -23,19 +23,18 @@
         </form>
       </div>
     </article>
-    <% console.log('user.id', user); %>
-    <% console.log('user.id', user.id); %>
-    <% console.log('user.name', user.name); %>
-    <% console.log('user comments', userComments); %>
-    <% console.log('user.books', user.books); %>
-    <% console.log('user.all_comments', user.all_comments); %>
-    <% console.log('user.creator', user.creator); %>
-    <% if (userComments) { %>
-      <% userComments.forEach(comment => { %>
-        <article class="message is-info">
-          <p class="message-body">
-            <%= comment.content %>
-          </p>
+
+    <% if (bookCommentPairs) { %>
+      <% bookCommentPairs.forEach(pair => { %>
+        <article class="message is-info content">
+          <div class="message-body">
+            <h6 ><%= pair[0][0] %></h6>
+            <ol>
+              <% pair[0][1].forEach(comment => { %>
+                <li><%= comment %></li>
+              <% }); %>
+            </ol>
+          </div>
         </article>
       <% }); %>
     <% } %>

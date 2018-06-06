@@ -39,22 +39,36 @@ function showRoute(req, res){
       const user = values[1];
       const userId = values[1]._id.toString();
       // console.log(userId);
-      const userComments = [];
+      const userComments = ['Temp'];
+
+      const bookCommentPairs = [];
       values[0].forEach(book => {
         // userComments.concat(book.comments.filter(comment => comment.comment_creator.toString() === userId));
-        // THIS WORKS - const filteredArr = book.comments.filter(comment => comment.comment_creator.toString() === userId);
+        const filteredArr = book.comments.filter(comment => comment.comment_creator.toString() === userId);
+        //console.log(filteredArr);
         // console.log('filtered array', filteredArr);
-        console.log(book.book_name); // this prinst book name
-        book.comments.forEach( comment => console.log(comment.content)); // this prints comment
+        // console.log(book.book_name); // this prinst book name
+        // filteredArr.forEach(comment => console.log(comment.content));
+        const bookComments = [];
+        filteredArr.forEach(comment => bookComments.push(comment.content));
+        // console.log(bookComments);
+        const bookAndComments = [];
+        bookAndComments.push([book.book_name, bookComments]);
+        //console.log(bookAndComments);
+
+        bookCommentPairs.push(bookAndComments);
+        // book.comments.forEach( comment => console.log(comment.content)); // this prints comment
         //console.log(book.comments);
         // THIS WORKS - Array.prototype.push.apply(userComments, filteredArr);
         // console.log('filtered array', filteredArr);
         // console.log('userComments array', userComments);
         // book.comments.forEach(comment => console.log(comment));
       });
+      console.log(bookCommentPairs);
       // console.log('filtered array', filteredArr);
       // console.log('userComments array', userComments);
-      res.render('users/show', {user, userComments});
+      res.render('users/show', {user, bookCommentPairs});
+      // res.render('users/show', {user, userComments});
       // console.log(userComments);
       // res.render('users/show', {values});
     });
