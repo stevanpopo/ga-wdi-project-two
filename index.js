@@ -13,9 +13,7 @@ const app = express();
 
 // Used packages & Other bits
 const { port, dbURI } = require('./config/environment');
-// const PORT = process.env.PORT || 3000; no longer needed because of above line
 const User = require('./models/user');
-// const Book = require('./models/book');
 
 mongoose.connect(dbURI);
 app.set('view engine', 'ejs');
