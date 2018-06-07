@@ -7,7 +7,9 @@ const userSchema = new mongoose.Schema({
   email: {type: String, required: true},
   bio: {type: String, minlength: 100},
   password: { type: String, required: true },
-  all_comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Book'}]
+  followers: [{type: String}],
+  following: [{type: String}]
+  // all_comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Book'}]
 }, {
   timestamps: true
 });

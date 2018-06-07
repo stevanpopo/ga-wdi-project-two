@@ -85,6 +85,18 @@ function deleteRoute(req, res){
     });
 }
 
+function followRoute(req, res){
+  console.log('in the follow route');
+  User
+    .findById(req.params.id)
+    .exec()
+    .then( user =>{
+      res.locals.currentUser.followers.push(user.id);
+      console.log(res.locals.currentUser.followers);
+    })
+    .then(res.redirect(`/users/${req.params.id}`));
+}
+
 module.exports = {
   // export functions
   new: newRoute,
@@ -93,5 +105,6 @@ module.exports = {
   show: showRoute,
   edit: editRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  follow: followRoute
 };

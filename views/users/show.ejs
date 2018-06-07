@@ -10,6 +10,11 @@
       <h3><%= user.email %></h3>
       <p><%= user.bio %></p>
       <p><%= user.password %></p>
+      <form action="/users/<%= user.id %>/follow" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <button class="button is-rounded" id="follow-button">Follow</button>
+      </form>
+      <p></p>
       <div class="field is-grouped is-grouped-multiline">
         <a class="button control" href="/users/<%= user.id %>/edit">Edit Profile</a>
         <form action="/users/<%= user.id %>" method="POST">

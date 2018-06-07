@@ -37,6 +37,9 @@ router.route('/users/:id')
 router.route('/users/:id/edit')
   .get(registrations.edit);
 
+router.route('/users/:id/follow')
+  .put(registrations.follow);
+
 // Routes for books
 router.route('/books')
   .post(books.create);
