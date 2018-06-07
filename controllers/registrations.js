@@ -91,8 +91,16 @@ function followRoute(req, res){
     .findById(req.params.id)
     .exec()
     .then( user =>{
-      res.locals.currentUser.followers.push(user.id);
-      console.log(res.locals.currentUser.followers);
+      // res.locals.currentUser.followers.push(user.id);
+      // console.log(res.locals.currentUser._id);
+      if (!user.followers.includes(res.locals.currentUser._id.toString())){
+        user.followers.push(res.locals.currentUser._id.toString());
+      } else {
+        // window.alert('You already follow this user');
+        console.log('ALREADY FOLLOWING USER');
+      }
+      // console.log(res.locals.currentUser);
+      return user.save();
     })
     .then(res.redirect(`/users/${req.params.id}`));
 }

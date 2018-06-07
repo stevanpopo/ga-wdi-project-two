@@ -9,10 +9,15 @@
       <h1><%= user.name %></h1>
       <h3><%= user.email %></h3>
       <p><%= user.bio %></p>
-      <p><%= user.password %></p>
+      <% if(user.followers.length != 0) { %>
+        <p>Followers: <%= user.followers.length %></p>
+      <% } else { %>
+        <p>Followers: <%= user.followers.length %> <-- Be the first person to follow this user!</p>
+      <% } %>
+
       <form action="/users/<%= user.id %>/follow" method="POST">
         <input type="hidden" name="_method" value="PUT">
-        <button class="button is-rounded" id="follow-button">Follow</button>
+        <button class="button is-rounded is-success" id="follow-button">Follow</button>
       </form>
       <p></p>
       <div class="field is-grouped is-grouped-multiline">
