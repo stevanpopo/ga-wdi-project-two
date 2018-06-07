@@ -13,14 +13,14 @@
           </div>
           <div class="media-content">
             <h3 class="title is-4"><a href="/books/<%= book.id %>"><%= book.book_name %></a></h3>
-            <h4 class="subtitle is-6"><%= book.book_author %></h4>
+            <h4 class="subtitle is-6">by <%= book.book_author %></h4>
             <h4 class="subtitle is-6">
               <% if (book.likes) { %>
                 <i class="far fa-heart fa-lg"></i> <%= book.likes %>
               <% } %>
             </h4>
 
-            
+
           </div>
         </div>
       </div>

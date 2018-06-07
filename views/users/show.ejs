@@ -12,8 +12,14 @@
       <% if(user.followers.length != 0) { %>
         <p>Followers: <%= user.followers.length %></p>
       <% } else { %>
-        <p>Followers: <%= user.followers.length %> <-- Be the first person to follow this user!</p>
+        <p>Followers: <%= user.followers.length %></p>
+        <div class="message is-warning content">
+          <div class="message-body">
+            <p>Be the first person to follow this user!</p>
+          </div>
+        </div>
       <% } %>
+
 
       <form action="/users/<%= user.id %>/follow" method="POST">
         <input type="hidden" name="_method" value="PUT">
