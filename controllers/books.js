@@ -33,9 +33,8 @@ function indexRoute(req, res){
 
 function createRoute(req, res){
   console.log('Create a new book');
-  console.log(req.body);
   const bookData = req.body;
-  bookData['creator'] = res.locals.user.id;
+  bookData['creator'] = res.locals.currentUser.id;
   // console.log(bookData);
   Book
     .create(req.body)
