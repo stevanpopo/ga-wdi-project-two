@@ -58,4 +58,8 @@ router.route('/books/:id/comments')
 router.route('/books/:id/comments/:commentId')
   .delete(books.commentDelete);
 
+router.route('/books/:id/likes')
+  .put(books.increment);
+
+
 module.exports = router;

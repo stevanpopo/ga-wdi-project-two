@@ -12,7 +12,8 @@ const bookSchema = new mongoose.Schema({
   cover_image: {type: String, required: true},
   creator: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   comments: [commentSchema],
-  commenters_count: {type: Number}
+  commenters_count: {type: Number},
+  likes: {type: Number}
 }, {
   timestamps: true
 });

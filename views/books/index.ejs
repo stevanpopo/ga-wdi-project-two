@@ -14,14 +14,20 @@
           <div class="media-content">
             <h3 class="title is-4"><a href="/books/<%= book.id %>"><%= book.book_name %></a></h3>
             <h4 class="subtitle is-6"><%= book.book_author %></h4>
+            <h4 class="subtitle is-6">
+              <% if (book.likes) { %>
+                <i class="far fa-heart fa-lg"></i> <%= book.likes %>
+              <% } %>
+            </h4>
+
             <% if(book.creator) { %>
-                <h4 class="subtitle is-6">Discussion started by <%= book.creator.name %></h4>
+                <h4>Discussion started by <%= book.creator.name %></h4>
             <% } %>
           </div>
         </div>
       </div>
       <footer class="card-footer">
-        <h4 class="card-footer-item"> This book has <%= book.comments.length %> comments from  <%= book.commenters_count %> different users.</h4>
+        <h4 class="card-footer-item"><strong> This book has <%= book.comments.length %> comments from  <%= book.commenters_count %> different users.</strong></h4>
       </footer>
     </div>
 

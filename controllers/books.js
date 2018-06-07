@@ -1,6 +1,9 @@
 const Book = require('../models/book.js');
 // const User = require('../models/user.js');
 
+Book.likes = 0;
+console.log('Book likes', Book.likes);
+
 function newRoute(req, res){
   console.log('Show new books form');
   if(!res.locals.isLoggedIn) return res.redirect('/'); //if not logged in, send to home page
@@ -50,9 +53,13 @@ function showRoute(req, res){
     .populate('comments.comment_creator')
     .exec()
     .then( book =>{
+      // const $likeButton = $('like-button');
+      // console.log($likeButton);
       res.render('books/show', {book});
     });
 }
+
+
 
 function editRoute(req, res){
   console.log('in the edit route');
@@ -117,6 +124,21 @@ function commentDeleteRoute(req, res, next) {
     .catch(next);
 }
 
+function incrementLikes(req, res){
+  console.log('incrementLikes called');
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then(book => {
+      book.likes ? book.likes ++ : book.likes = 1;
+      console.log('book', book);
+      console.log('book likes', book.likes);
+      return book.save();
+    })
+    .then( book => res.redirect(`/books/${book._id}`));
+
+}
+
 module.exports = {
   new: newRoute,
   create: createRoute,
@@ -126,5 +148,6 @@ module.exports = {
   update: updateRoute,
   delete: deleteRoute,
   commentCreate: commentCreateRoute,
-  commentDelete: commentDeleteRoute
+  commentDelete: commentDeleteRoute,
+  increment: incrementLikes
 };
