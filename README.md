@@ -29,8 +29,7 @@ In order to gain inspiration for my web app I:
 * Listed my areas of interest and brainstormed how to build useful apps.
 * Listed communities I am part of and thought of what I could build to serve them.
 
-<p align="center">
-![image width="700"](/images/bookclubr_notes.JPG)</p>
+![image width="700"](./public/images/bookclubr_notes.JPG)
 
 ### Plan
 From the experience of [my first project](https://github.com/stevanpopo/ga-wdi-project-one) I knew it was crucial to get to MVP as soon as possible. With that in mind, I:
@@ -43,8 +42,7 @@ From the experience of [my first project](https://github.com/stevanpopo/ga-wdi-p
 ### Build
 The build phase involved simply getting in front of my computer and tackling each element of the plan one by one, with a focus on getting to MVP as quickly as possible. It felt very satisfying to tick these off and mark them as done (in green).
 
-<p align="center">
-![image width="700"](/images/bookclubr_plan.png)</p>
+![image width="700"](./public/images/bookclubr_plan.png)
 
 ### MVP
 A key milestone was to get to MVP. For me this meant:
