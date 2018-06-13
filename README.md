@@ -7,8 +7,7 @@ This was the second project assignment during my time on General Assembly's Web 
 * Comment on and 'like' their favourite books.
 * Follow other people in the community.
 
-<p align="center">
-![image width="700"](./public/images/bookclubr_demonstration_final.gif)</p>
+![image width="700"](./public/images/bookclubr_demonstration_final.gif)
 
 ##### [Visit the website](https://bookclubr.herokuapp.com/) to check it out (the app is not yet fully responsive. For best experience open on laptop).
 
