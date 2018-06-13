@@ -29,7 +29,7 @@ In order to gain inspiration for my web app I:
 * Listed my areas of interest and brainstormed how to build useful apps.
 * Listed communities I am part of and thought of what I could build to serve them.
 
-![image width="700"](./public/images/bookclubr_notes.JPG)
+![image width="300"](./public/images/bookclubr_notes.JPG)
 
 ### Plan
 From the experience of [my first project](https://github.com/stevanpopo/ga-wdi-project-one) I knew it was crucial to get to MVP as soon as possible. With that in mind, I:
