@@ -82,6 +82,11 @@ Some features I could add moving forward:
 * **Plan is just a plan.** My experience from two projects is to not get too attached to a plan. They always change (and generally extend).
 * **Console.log everything when big fixing!!!** Can't stress this enough.
 
+## Other GA projects
+* [Project One (Browser-based game)](https://github.com/stevanpopo/ga-wdi-project-one)
+* [Project Three (MEAN stack app - group project)](https://github.com/stevanpopo/ga-wdi-project-three)
+* [Project Four (MERN stack app)](https://github.com/stevanpopo/ga-wdi-project-three)
+
 ## Contact Me
 Feel free to ask me questions about this project or anything else [on twitter](https://twitter.com/StevanPopo).
 
